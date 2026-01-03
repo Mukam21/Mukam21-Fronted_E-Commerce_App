@@ -34,8 +34,8 @@ const DealsPage = () => {
         marginBottom: 10,
       }}
     >
-      {items.map((item, i) => (
-        <DealsCard deal={item} />
+      {items.map((item) => (
+        <DealsCard key={item.name} deal={item} />
       ))}
     </Carousel>
   );

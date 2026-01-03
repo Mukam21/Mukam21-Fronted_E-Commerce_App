@@ -106,6 +106,37 @@
 //   );
 // };
 
+// import ImageList from "@mui/material/ImageList";
+// import ImageListItem from "@mui/material/ImageListItem";
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import { CategoryModel } from "../../types";
+// import imagePlaceholder from "../../images/place_holder.jpg";
+
+// interface Props {
+//   cats: CategoryModel[];
+// }
+
+// export const CategorySlider: React.FC<Props> = ({ cats }) => {
+//   const navigate = useNavigate();
+
+//   return (
+//     <ImageList sx={{ display: "flex", flexWrap: "nowrap" }} cols={2.5}>
+//       {cats.map((item) => (
+//         <ImageListItem
+//           key={item.id}
+//           sx={{ cursor: "pointer" }}
+//           onClick={() => navigate(`/category/${item.id}`)}
+//         >
+//           <img src={imagePlaceholder} alt={item.name} />
+//           <p>{item.name}</p>
+//         </ImageListItem>
+//       ))}
+//     </ImageList>
+//   );
+// };
+
+
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import React from "react";
@@ -121,15 +152,44 @@ export const CategorySlider: React.FC<Props> = ({ cats }) => {
   const navigate = useNavigate();
 
   return (
-    <ImageList sx={{ display: "flex", flexWrap: "nowrap" }} cols={2.5}>
+    <ImageList
+      sx={{
+        display: "flex",
+        flexWrap: "nowrap",
+        overflowX: "auto",
+        width: "100%",
+      }}
+    >
       {cats.map((item) => (
         <ImageListItem
           key={item.id}
-          sx={{ cursor: "pointer" }}
+          sx={{
+            minWidth: 160,
+            cursor: "pointer",
+            textAlign: "center",
+          }}
           onClick={() => navigate(`/category/${item.id}`)}
         >
-          <img src={imagePlaceholder} alt={item.name} />
-          <p>{item.name}</p>
+          <img
+            src={imagePlaceholder}
+            alt={item.name}
+            style={{
+              height: 120,
+              width: 120,
+              borderRadius: 10,
+              margin: "0 auto",
+            }}
+          />
+          <p
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              color: "#505050",
+              marginTop: 8,
+            }}
+          >
+            {item.name}
+          </p>
         </ImageListItem>
       ))}
     </ImageList>

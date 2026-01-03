@@ -664,9 +664,13 @@ interface SearchTextProps {
   onChange: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
 }
 
-export const TxtSearch: React.FC<SearchTextProps> = ({ placeholder, onChange }) => {
+export const TxtSearch: React.FC<SearchTextProps> = ({
+  placeholder,
+  onChange,
+}) => {
   return (
     <SInput
+      variant="standard"
       placeholder={placeholder}
       onChange={onChange}
       InputProps={{
